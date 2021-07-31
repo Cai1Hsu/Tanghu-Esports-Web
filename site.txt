@@ -1,4 +1,2 @@
-https://tanghu.vercel.app/index.html
-https://tanghu.vercel.app/
-http://tanghu.vercel.app/index.html
-http://tanghu.vercel.app/
+https://tanghu.eu.org/index.html
+https://tanghu.eu.org

@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 Crawl-delay: 5
-Sitemap: https://tanghu.vercel.app/site.txt
+Sitemap: https://tanghu.eu.org/site.txt

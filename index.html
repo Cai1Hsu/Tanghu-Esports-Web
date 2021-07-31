@@ -28,10 +28,15 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery.min.js"></script>
+	<script>
+		(function () {
+			if(document.location.href.indexOf("vercel") > 0 || document.location.href.indexOf(".html") > 0){
+				window.stop();
+				document.location.href = "new.html";
+			}
+		})();
+</script>
 </head>
-
-
-
 
 <body>
     <header class="navbar-fixed">
@@ -513,7 +518,7 @@
                         <div class="title center-align">
                             <h1>Logo revolution</h1>
                             <div align="center">
-		                        <iframe src="./logochange.html" height="300" width="300" scrolling="no" frameborder="0" seamless="seamless"></iframe>
+		                        <iframe src="./logochange.html" height="272" width="272" scrolling="no" frameborder="0" seamless="seamless"></iframe>
 	                        </div>
                             Flat, modern, and fashionable.
 	                        <a href="https://www.figma.com/file/qjCPnYCaPrm2h9oPlkD413/TanghuEsports?node-id=9%3A8">查看设计规范</a>
@@ -1149,7 +1154,7 @@
                             <div class="card-image">
 
 
-                                <img src="/medias/featureimages/1.jpg" class="responsive-img"
+                                <img src="/logo.png" class="responsive-img"
                                     alt="Tanghu Esport FOUNDED">
 
                                 <span class="card-title">Tanghu Esport FOUNDED</span>
@@ -1392,12 +1397,10 @@
 
     <script src="/libs/others/clicklove.js" async="async"></script>
 
-
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
 
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
-
-
+	
 </body>
 
 </html>
