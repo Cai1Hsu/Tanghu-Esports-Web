@@ -29,7 +29,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 	<script>
 		(function () {
-			if(document.location.href.indexOf("vercel") > 0 || document.location.href.indexOf(".html") > 0){
+			if(document.location.href.indexOf("vercel") > -1){
 				window.stop();
 				document.location.href = "new.html";
 			}
