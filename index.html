@@ -29,7 +29,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 	<script>
 		(function () {
-			if(document.location.href.indexOf("vercel") > -1 || document.location.href.indexOf("localhost") > -1){
+			if(document.location.href.indexOf("vercel") > 0 || document.location.href.indexOf(".html") > 0){
 				window.stop();
 				document.location.href = "new.html";
 			}
@@ -473,7 +473,7 @@
 							<div style="width: 100%;">
 								<div style="width: 100%; overflow:auto">
 									<div class="center-align" style="float: left;width: 270px;">
-										<img src="./logo.png" style="width:260px" alt="logo"/>
+										<img src="./logo.png" style="width:260px"/>
 									</div>
 									<div>
 										<h1>Tanghu Esports</h1>
@@ -494,7 +494,7 @@
 							</div>
                         </div>
                         <hr />
-                        <div style="width:max-content;overflow:hidden">
+                        <div style="overflow:hidden">
                             <h3 class="standard-headline">Rank valueing development for core</h3>
                             <div class="border-box">
                                 <div class="ranking-info">
@@ -503,7 +503,7 @@
 									<div><b>Time at peak:</b><span style="float:right">56 weeks</span></div>
                                 </div>
 								<div style="width:max-content;">
-									<img src="./dev.png" alt="Our rank development" style="width:max-content;"></img>
+									<img src="./dev.png" alt="Our rank development" style="70%"></img>
 								</div>
                             </div>
                         </div>
