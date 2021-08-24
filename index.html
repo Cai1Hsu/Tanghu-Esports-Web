@@ -27,19 +27,19 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery.min.js"></script>
-	<script>
-		(function () {
-			if(document.location.href.indexOf("vercel") > -1){
-				window.stop();
-				document.location.href = "new.html";
-			}
-		})();
+    <script>
+        (function () {
+            if (document.location.href.indexOf("vercel") > -1) {
+                window.stop();
+                document.location.href = "new.html";
+            }
+        })();
     </script>
     <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
         })(window, document, "clarity", "script", "7u7r6g7fnx");
     </script>
 </head>
@@ -240,7 +240,7 @@
                 }
             </style>
 
-            
+
         </nav>
 
     </header>
@@ -335,7 +335,7 @@
                 </div>
 
                 <script>
-					//background image
+                    //background image
                     $('.bg-cover').css('background-image', 'url(' + "./bg.jpeg" + ')')
                 </script>
 
@@ -359,7 +359,7 @@
                         <i class="fab fa-github"></i>
                     </a>
 
-                <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top"
+                    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top"
                         data-delay="50">
                         <i class="fas fa-rss"></i>
                     </a>
@@ -419,26 +419,99 @@
             <div class="container ">
                 <div class="card">
                     <div class="card-content">
-                        <div class="title center-align">
-                            <div class="title center-align" id="#logo">
-								Logo revolution
-							</div>
-                            <div align="center">
-		                        <iframe src="./logochange.html" height="272" width="272" scrolling="no" frameborder="0" seamless="seamless"></iframe>
-	                        </div>
-                            Flat, modern, and fashionable.
-	                        <a href="https://www.figma.com/file/qjCPnYCaPrm2h9oPlkD413/TanghuEsports?node-id=9%3A8">查看设计规范</a>
-                        </div>
-                        
                         <div class="dream">
-        
+
+                            <div class="title center-align">
+                                <i class="far"></i>Logo revolution
+                            </div>
+
+                            <div class="row">
+                                <div style=" margin-left:auto;margin-right: auto;height: 262px;width: 256px;">
+                                    <img src="./line.png" id="line" style="height:262px;width:5px;position: absolute;z-index: 5;">
+                                    <img src="./old.png" id="newlogo"
+                                        style="height:256px;width:256px;position: absolute">
+                                    <div class="oldlogo"
+                                        style="width: 0px; height: 256px; position: absolute; overflow: hidden; ">
+                                        <img src="./logo.png" id="oldlogo_pic"
+                                            style="height:256px;width:256px;position: absolute">
+                                    </div>
+                                    <script type="text/javascript">
+                                        var oldlogo = document.getElementsByClassName("oldlogo")[0];
+                                        var newlogo = document.getElementById("newlogo");
+                                        var line = document.getElementById("line");
+                                        var pos = newlogo.getBoundingClientRect();
+                                        var p = (newlogo.x - 1);
+                                        oldlogo.style.left = pos.x;
+                                        oldlogo.style.top = pos.y;
+                                        line.style.left = pos.x - 2;
+                                        line.style.top = pos.y - 4;
+                                        document.onmousemove = function (e) {
+                                            var e = e || window.event;
+                                            if (e.clientX >= pos.x && e.clientX <= pos.x + pos.width) {
+                                                oldlogo.style.width = e.clientX - pos.x + "px";
+                                                if(e.clientX >= pos.x && e.clientX <= pos.x + pos.width){
+                                                    line.style.left =  oldlogo.offsetLeft + e.clientX - pos.x - 2 + "px" ;
+                                                }
+                                            }
+                                        }
+                                    </script>
+                                </div>
+                                <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
+                                    ↑Move your mouse here to see what were changed.↑
+                                </div>
+                                <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
+                                    Flat, modern, and fashionable.
+                                    <a
+                                        href="https://www.figma.com/file/qjCPnYCaPrm2h9oPlkD413/TanghuEsports?node-id=9%3A8">查看设计规范</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--
+                            <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align" style="width: 272;height: 272;align-content: center;align-self: center;align-items: center;">
+                                <img src="./old.png" id="newlogo" style="height:256px;width:256px;position: absolute">
+                                <div class="oldlogo" style="width: 0px; height: 256px; position: absolute; overflow: hidden; margin: 0 auto;">
+                                    <img src="./logo.png" id="oldlogo_pic"
+                                        style="height:256px;width:256px;z-index:9999;position: absolute"></div>
+                                <img src="./line.png" id="line" style="height:262px;width:5px;z-index:10000">
+                                <script type="text/javascript">
+                                    var oldlogo = document.getElementsByClassName("oldlogo")[0];
+                                    var newlogo = document.getElementById("newlogo");
+                                    var line = document.getElementById("line");
+                                    var pos = newlogo.getBoundingClientRect();
+                                    var originalPos = pos;
+                                    var p = (newlogo.x - 1);
+                                    oldlogo.style.left = pos.x;
+                                    oldlogo.style.top = pos.y;
+                                    line.style.left = pos.x - 2;
+                                    line.style.top = pos.y - 4;
+                                    document.onmousemove = function (e) {
+                                        var e = e || window.event;
+                                        if (e.clientY >= pos.y && e.clientY <= pos.y + pos.height && e.clientX >= originalPos.x && e.clientX <= originalPos.x + originalPos.width) {
+                                            console.log("working");
+                                            line.style.left = (e.clientX >= pos.x && e.clientX <= pos.x + pos.width) ? e.clientX - 2 : ParseInt(line.style.left);
+                                            oldlogo.style.width = e.clientX - pos.x;
+                                        }
+    
+                                    }
+                                </script>
+                            </div>
+                        </div>
+                        Flat, modern, and fashionable.
+                        <a
+                            href="https://www.figma.com/file/qjCPnYCaPrm2h9oPlkD413/TanghuEsports?node-id=9%3A8">查看设计规范</a>
+                    </div>
+                -->
+
+                        <div class="dream">
+
                             <div class="title center-align">
                                 <i class="far fa-lightbulb"></i>&nbsp;&nbsp;Who Are We?
                             </div>
 
                             <div class="row">
                                 <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
-                                    Tanghu Esports is a powerful CSGO Team which has won 5 majors. It is consist of the 5
+                                    Tanghu Esports is a powerful CSGO Team which has won 5 majors. It is consist of the
+                                    5
                                     players below:
                                 </div>
                                 <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">将拥军 </div>
@@ -457,7 +530,7 @@
                         </div>
                         <hr />
                         <div class="standard-box profileTopBox clearfix">
-								<!--
+                            <!--
                                 <div class="flex">
                                     <div class="profile-team-container text-ellipsis" style="width:50%;float:left;">
                                         <div class="profile-team-logo-container">
@@ -477,28 +550,28 @@
                                     </div>
                                 </div>
 								-->
-							<div style="width: 100%;">
-								<div style="width: 100%; overflow:auto">
-									<div class="center-align" style="float: left;width: 270px;">
-										<img src="./logo.png" style="width:260px"/>
-									</div>
-									<div>
-										<h1>Tanghu Esports</h1>
-										<div>
-											<b>&nbsp; World ranking</b>
-											<span style="float:right">#1</span>
-										</div>
-										<div>
-											<b>&nbsp; Weeks in top30 for core</b>
-											<span style="float:right">227</span>
-										</div>
-										<div>
-											<b>&nbsp; Average player age</b>
-											<span style="float:right">16.1</span>
-										</div>
-									</div>
-								</div>
-							</div>
+                            <div style="width: 100%;">
+                                <div style="width: 100%; overflow:auto">
+                                    <div class="center-align" style="float: left;width: 270px;">
+                                        <img src="./logo.png" style="width:260px" />
+                                    </div>
+                                    <div>
+                                        <h1>Tanghu Esports</h1>
+                                        <div>
+                                            <b>&nbsp; World ranking</b>
+                                            <span style="float:right">#1</span>
+                                        </div>
+                                        <div>
+                                            <b>&nbsp; Weeks in top30 for core</b>
+                                            <span style="float:right">227</span>
+                                        </div>
+                                        <div>
+                                            <b>&nbsp; Average player age</b>
+                                            <span style="float:right">16.1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <hr />
                         <div style="overflow:hidden">
@@ -506,12 +579,12 @@
                             <div class="border-box">
                                 <div class="ranking-info">
                                     <div><b>Current rank :</b><span style="float:right">#1</span></div>
-									<div><b>Peak:</b><span style="float:right">#1</span></div>
-									<div><b>Time at peak:</b><span style="float:right">56 weeks</span></div>
+                                    <div><b>Peak:</b><span style="float:right">#1</span></div>
+                                    <div><b>Time at peak:</b><span style="float:right">56 weeks</span></div>
                                 </div>
-								<div style="width:max-content;">
-									<img src="./dev.png" alt="Our rank development" style="width:70%"></img>
-								</div>
+                                <div style="width:max-content;">
+                                    <img src="./dev.png" alt="Our rank development" style="width:70%"></img>
+                                </div>
                             </div>
                         </div>
                         <hr />
@@ -519,15 +592,15 @@
                             <i class="far fa-lightbulb"></i>&nbsp;&nbsp; Want to join us?
                         </div>
                         <div>
-				<div align="center">
-					<p>Please write email to <a href="mailto:joinus@tanghu.eu.org" title="E-Mail → mailto:joinus@tanghu.eu.org" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>joinus@tanghu.eu.org</a> to tell us.</p>
-				</div>
+                            <div align="center">
+                                <p>Please write email to <a href="mailto:joinus@tanghu.eu.org"
+                                        title="E-Mail → mailto:joinus@tanghu.eu.org" rel="noopener" target="_blank"><i
+                                            class="fa fa-envelope fa-fw"></i>joinus@tanghu.eu.org</a> to tell us.</p>
+                            </div>
                             <section>
                                 <div align="center">俱乐部地址：四川省双流棠湖中学高中部 四川省成都市双流区双江路二段188号（双楠大道989号处为学校后门）邮编：610200</div>
                                 <div align="center">
-                                    <img src="./tzwx.jpg"
-                                        style="height: 100px;width: 100px;"
-										alt="qr code">
+                                    <img src="./tzwx.jpg" style="height: 100px;width: 100px;" alt="qr code">
                                 </div>
                             </section>
                         </div>
@@ -542,7 +615,7 @@
         <!-- 所有文章卡片 -->
         <article id="articles" class="container articles">
             <div class="row article-row">
-                
+
                 <div class="article col s12 m6 l4" data-aos="zoom-in">
                     <div class="card">
                         <a href="javascript:;">
@@ -567,14 +640,14 @@
                                 <span class="publish-author">
 
                                     <i class="fas fa-user fa-fw"></i>
-                                    
+
 
                                 </span>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="article col s12 m6 l4" data-aos="zoom-in">
                     <div class="card">
                         <a href="javascript:;">
@@ -582,9 +655,11 @@
 
 
                                 <img src="https://img-cdn.hltv.org/eventlogo/RWm22kwnig594XEVi-6f2j.png?ixlib=java-2.1.0&s=272ae62d48b94f2ecc73c5f05237611d"
-                                    class="responsive-img" alt="Tanghu Esports BEAT TYLOO TO WIN PERFECT WORLD LEAGUE SEASON 1">
+                                    class="responsive-img"
+                                    alt="Tanghu Esports BEAT TYLOO TO WIN PERFECT WORLD LEAGUE SEASON 1">
 
-                                <span class="card-title">Tanghu Esports BEAT TYLOO TO WIN PERFECT WORLD LEAGUE SEASON 1</span>
+                                <span class="card-title">Tanghu Esports BEAT TYLOO TO WIN PERFECT WORLD LEAGUE SEASON
+                                    1</span>
                             </div>
                         </a>
 
@@ -599,7 +674,7 @@
                                 <span class="publish-author">
 
                                     <i class="fas fa-user fa-fw"></i>
-                                    
+
 
                                 </span>
                             </div>
@@ -631,7 +706,7 @@
                                 <span class="publish-author">
 
                                     <i class="fas fa-user fa-fw"></i>
-                                    
+
 
                                 </span>
                             </div>
@@ -663,7 +738,7 @@
                                 <span class="publish-author">
 
                                     <i class="fas fa-user fa-fw"></i>
-                                    
+
 
                                 </span>
                             </div>
@@ -679,8 +754,7 @@
                             <div class="card-image">
 
 
-                                <img src="/logo.png" class="responsive-img"
-                                    alt="Tanghu Esports FOUNDED">
+                                <img src="/logo.png" class="responsive-img" alt="Tanghu Esports FOUNDED">
 
                                 <span class="card-title">Tanghu Esports FOUNDED</span>
                             </div>
@@ -697,7 +771,7 @@
                                 <span class="publish-author">
 
                                     <i class="fas fa-user fa-fw"></i>
-                                    
+
 
                                 </span>
                             </div>
@@ -898,7 +972,7 @@
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
 
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
-	
+
 </body>
 
 </html>
