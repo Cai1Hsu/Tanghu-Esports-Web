@@ -26,14 +26,7 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery.min.js"></script>
-    <script>
-        (function () {
-            if (document.location.href.indexOf("vercel") > -1) {
-                window.stop();
-                document.location.href = "new.html";
-            }
-        })();
-    </script>
+
     <script type="text/javascript">
         (function (c, l, a, r, i, t, y) {
             c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
@@ -936,15 +929,8 @@
                 |&nbsp;Powered by&nbsp;<a href="https://www.Cloudflare.com/" target="_blank">Cloudflare</a>
                 <br>
 
-                <span id="busuanzi_container_site_pv">
-                    |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                        class="white-color"></span>&nbsp;次
-                </span>
-
-
-                <span id="busuanzi_container_site_uv">
-                    |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                        class="white-color"></span>&nbsp;人
+                <span id="busuanzi_container_site_pv" style="display: inline;">
+                    |&nbsp;<i class="far fa-eye"></i><span id="total_visits" class="white-color"></span>
                 </span>
 
                 <br>
@@ -1084,27 +1070,24 @@
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
 
-    <!-- Baidu Push -->
-
-    <script>
-        (function () {
-            var bp = document.createElement('script');
-            var curProtocol = window.location.protocol.split(':')[0];
-            if (curProtocol === 'https') {
-                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-            }
-            else {
-                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-            }
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(bp, s);
-            console.log("\'push.js\' loaded.");
-        })();
-    </script>
-
     <script src="/libs/others/clicklove.js" async="async"></script>
 
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    <!-- <script async src="/libs/others/busuanzi.pure.mini.js"></script> -->
+    <script>
+        (function () {
+            var visits_panel = window.document.getElementById("total_visits");
+            if (window.location.host == "tanghu.eu.org") {
+                //转换成json对象后return，给下一步的.then处理
+                fetch("/visits").then(response => response.json())
+                .then(data => visits_panel.innerText = "总访问量: "+ data + "次")
+                .catch((error) => {
+                    visits_panel.innerText = "Failed to fetch 总访问量";
+                })
+            }else{
+                visits_panel.innerText = "总访问量 is not avaliable on local preview.";
+            }
+        })();
+    </script>
 
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
 
